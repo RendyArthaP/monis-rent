@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Monis Workspace Designer
 
-## Getting Started
+Interactive workspace builder for `monis.rent` built for the Desent coding challenge.
 
-First, run the development server:
+## Live Features
+
+- Select a desk from 3 options.
+- Select a chair from 3 options.
+- Add and remove accessories (monitor, lamp, plant, notebook stand, speaker).
+- Live visual workspace preview that updates in real time.
+- Summary/checkout panel with itemized monthly pricing.
+- Preset setups for fast exploration (`Minimal Set`, `Developer Pro`, `Calm Creator`).
+- Basic product constraints (for example monitor max quantity).
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- React 19
+- Tailwind CSS 4
+- Deployed on Vercel
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Write-Up (Approach)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+I focused on a product-like user flow first: choose furniture, see visual feedback instantly, and finish with a clear checkout summary. The UI is intentionally visual and lightweight so users can experiment quickly without feeling like they are filling a form.
 
-## Learn More
+Technical choices were made to keep iteration fast and maintainable:
 
-To learn more about Next.js, take a look at the following resources:
+- App Router page stays simple and renders a dedicated client component for interaction.
+- Config data (desks/chairs/accessories/presets) is colocated with the builder for a compact MVP.
+- State is managed with React hooks and derived totals are computed with memoization.
+- Preview uses layered shapes and accessory markers for immediate visual response.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If given more time, I would improve:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Drag-and-drop placement and snapping in preview.
+- Better 2.5D/3D visuals and richer item-specific illustrations.
+- URL-persisted configurations for sharing setups.
+- Full accessibility audit and expanded keyboard interactions.
+- API-backed catalog and checkout submission flow.
 
-## Deploy on Vercel
+## Submission Checklist
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Live URL: deploy to Vercel and add it here.
+- GitHub repository: push this code and share repo link.
+- Add collaborator `desent-bot` with **Read** access.
+- Include this README write-up (approach, tech choices, improvements).
